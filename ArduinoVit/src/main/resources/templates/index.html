@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Controle de LED</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body th:class="${ledOn} ? 'on' : 'off'">
+<div class="container">
+    <h1>Controle de LED</h1>
+    <form method="post" action="/toggle">
+        <button type="submit" th:text="${ledOn} ? 'Desligar LED' : 'Ligar LED'"></button>
+    </form>
+
+    <div class="logs">
+        <h2>Histórico de Ações</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Status</th>
+                <th>Data/Hora</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="log : ${logs}">
+                <td th:text="${log.id}"></td>
+                <td th:text="${log.status}"></td>
+                <td th:text="${#temporals.format(log.timestamp, 'dd/MM/yyyy HH:mm:ss')}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
