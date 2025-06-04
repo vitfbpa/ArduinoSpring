@@ -10,7 +10,6 @@ Este projeto permite ligar e desligar um LED conectado a um Arduino por uma inte
 - Spring Boot (Web, MVC, JPA, Thymeleaf)  
 - MySQL  
 - Maven  
-- jSerialComm (comunicação com Arduino)  
 - HTML + CSS (responsivo)  
 - Arduino UNO  
 
